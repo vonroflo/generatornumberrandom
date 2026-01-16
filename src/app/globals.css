@@ -43,6 +43,12 @@ body {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+/* Headings use Space Grotesk */
+h1, h2, h3, h4, h5, h6,
+.font-heading {
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+}
+
 /* Animations */
 @keyframes fadeScale {
   from {

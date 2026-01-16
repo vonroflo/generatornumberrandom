@@ -39,11 +39,10 @@ export default function ThemeToggle() {
   if (!mounted) {
     return (
       <button
-        className="flex items-center gap-1.5 py-1.5 px-3 rounded-lg text-sm font-medium bg-background-card border border-border transition-colors"
+        className="w-9 h-9 flex items-center justify-center rounded-lg text-base bg-background-card border border-border transition-colors shrink-0"
         aria-label="Theme toggle"
       >
-        <span>🌙</span>
-        <span className="hidden sm:inline">Dark</span>
+        🌙
       </button>
     );
   }
@@ -51,12 +50,11 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={cycleTheme}
-      className="flex items-center gap-1.5 py-1.5 px-3 rounded-lg text-sm font-medium bg-background-card border border-border hover:border-accent-primary transition-colors"
+      className="w-9 h-9 flex items-center justify-center rounded-lg text-base bg-background-card border border-border hover:border-accent-primary active:scale-95 transition-all shrink-0"
       title={`Theme: ${getLabel()}`}
       aria-label={`Current theme: ${getLabel()}. Click to change.`}
     >
-      <span>{getIcon()}</span>
-      <span className="hidden sm:inline">{getLabel()}</span>
+      {getIcon()}
     </button>
   );
 }
