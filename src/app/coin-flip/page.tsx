@@ -5,6 +5,9 @@ import CoinFlipTool from "@/components/tools/CoinFlipTool";
 export const metadata: Metadata = {
   title: "Coin Flip - Heads or Tails",
   description: "Free online coin flip simulator. Flip a virtual coin to get heads or tails instantly. Perfect for making quick decisions or settling disputes.",
+  alternates: {
+    canonical: "/coin-flip",
+  },
   openGraph: {
     title: "Coin Flip - Heads or Tails | GeneratorNumberRandom",
     description: "Free online coin flip simulator. Flip a virtual coin to get heads or tails instantly.",

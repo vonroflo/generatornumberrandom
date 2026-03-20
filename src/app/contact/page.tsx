@@ -4,6 +4,9 @@ import ToolChips from "@/components/ToolChips";
 export const metadata: Metadata = {
   title: "Contact",
   description: "Contact GeneratorNumberRandom.com - Get in touch with us for questions, feedback, or support.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default function ContactPage() {

@@ -5,6 +5,9 @@ import YesNoTool from "@/components/tools/YesNoTool";
 export const metadata: Metadata = {
   title: "Yes or No Generator - Random Decision Maker",
   description: "Free yes or no generator for quick random decisions. Let the generator decide for you instantly. Perfect for making choices when you can't decide.",
+  alternates: {
+    canonical: "/yes-no-generator",
+  },
   openGraph: {
     title: "Yes or No Generator - Random Decision Maker | GeneratorNumberRandom",
     description: "Free yes or no generator for quick random decisions. Let the generator decide for you instantly.",

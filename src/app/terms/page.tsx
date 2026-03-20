@@ -3,6 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description: "Terms of service for GeneratorNumberRandom.com - Read our terms and conditions for using our free random generator tools.",
+  alternates: {
+    canonical: "/terms",
+  },
 };
 
 export default function TermsPage() {

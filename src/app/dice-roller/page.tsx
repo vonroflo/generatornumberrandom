@@ -5,6 +5,9 @@ import DiceRollerTool from "@/components/tools/DiceRollerTool";
 export const metadata: Metadata = {
   title: "Dice Roller - Roll Virtual Dice",
   description: "Free online dice roller. Roll 1 to 10 dice instantly and get random results from 1-6. Perfect for board games, RPGs, and tabletop gaming.",
+  alternates: {
+    canonical: "/dice-roller",
+  },
   openGraph: {
     title: "Dice Roller - Roll Virtual Dice | GeneratorNumberRandom",
     description: "Free online dice roller. Roll 1 to 10 dice instantly and get random results from 1-6.",

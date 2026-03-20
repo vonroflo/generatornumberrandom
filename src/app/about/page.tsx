@@ -4,6 +4,9 @@ import ToolChips from "@/components/ToolChips";
 export const metadata: Metadata = {
   title: "About",
   description: "About GeneratorNumberRandom.com - Learn about our free random number generator tools and our mission to provide fast, fun randomization utilities.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {

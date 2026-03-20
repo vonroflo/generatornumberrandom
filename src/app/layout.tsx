@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -22,6 +23,9 @@ export const metadata: Metadata = {
   authors: [{ name: "GeneratorNumberRandom" }],
   creator: "GeneratorNumberRandom",
   metadataBase: new URL("https://generatornumberrandom.com"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -68,6 +72,20 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={spaceGrotesk.variable}>
       <body className="min-h-screen flex flex-col antialiased">
+        <Script
+          id="organization-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "GeneratorNumberRandom",
+              url: "https://generatornumberrandom.com",
+              logo: "https://generatornumberrandom.com/icon.svg",
+              sameAs: [],
+            }),
+          }}
+        />
         <ThemeProvider>
           <Analytics />
           <Header />

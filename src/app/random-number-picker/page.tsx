@@ -5,6 +5,9 @@ import RandomNumberPickerTool from "@/components/tools/RandomNumberPickerTool";
 export const metadata: Metadata = {
   title: "Random Number Picker - Pick From Your List",
   description: "Free random number picker. Enter your own list of numbers and randomly pick one or more. Perfect for raffles, drawings, and random selection.",
+  alternates: {
+    canonical: "/random-number-picker",
+  },
   openGraph: {
     title: "Random Number Picker - Pick From Your List | GeneratorNumberRandom",
     description: "Free random number picker. Enter your own list of numbers and randomly pick one or more.",

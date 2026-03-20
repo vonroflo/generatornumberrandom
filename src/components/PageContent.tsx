@@ -1,5 +1,6 @@
 import ToolChips from "./ToolChips";
 import AdSlot from "./AdSlot";
+import Script from "next/script";
 
 interface FAQ {
   question: string;
@@ -23,8 +24,79 @@ export default function PageContent({
   faqs,
   currentPath,
 }: PageContentProps) {
+  // JSON-LD FAQPage schema for rich snippets
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
+  // JSON-LD WebApplication schema
+  const webAppSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: title,
+    description: description,
+    url: `https://generatornumberrandom.com${currentPath}`,
+    applicationCategory: "UtilityApplication",
+    operatingSystem: "Any",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    browserRequirements: "Requires JavaScript",
+  };
+
+  // JSON-LD BreadcrumbList schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://generatornumberrandom.com",
+      },
+      ...(currentPath !== "/"
+        ? [
+            {
+              "@type": "ListItem",
+              position: 2,
+              name: title,
+              item: `https://generatornumberrandom.com${currentPath}`,
+            },
+          ]
+        : []),
+    ],
+  };
+
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+      <Script
+        id={`faq-schema-${currentPath}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <Script
+        id={`webapp-schema-${currentPath}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
+      />
+      <Script
+        id={`breadcrumb-schema-${currentPath}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       <h1 className="text-3xl sm:text-4xl font-bold text-center mb-8">
         {title}
       </h1>

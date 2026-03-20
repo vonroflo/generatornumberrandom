@@ -2,10 +2,10 @@ import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://generatornumberrandom.com";
+  const lastModified = new Date("2026-03-20");
 
-  // Main pages
-  const mainPages = [
-    "",
+  // Tool pages (high priority)
+  const toolPages = [
     "/coin-flip",
     "/dice-roller",
     "/yes-no-generator",
@@ -14,13 +14,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/random-letter-generator",
     "/random-color-generator",
     "/random-date-generator",
-    "/privacy-policy",
-    "/terms",
-    "/about",
-    "/contact",
   ];
 
-  // Preset range pages
+  // Preset range pages (high priority)
   const presetRanges = [
     "/random-number-1-10",
     "/random-number-1-100",
@@ -34,12 +30,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/random-number-1-12",
   ];
 
-  const allPages = [...mainPages, ...presetRanges];
+  // Low-priority informational pages
+  const infoPages = [
+    "/privacy-policy",
+    "/terms",
+    "/about",
+    "/contact",
+  ];
 
-  return allPages.map((path) => ({
-    url: `${baseUrl}${path}`,
-    lastModified: new Date(),
-    changeFrequency: path === "" ? "weekly" : "monthly",
-    priority: path === "" ? 1 : path.startsWith("/random-number-") ? 0.8 : 0.7,
-  }));
+  return [
+    {
+      url: baseUrl,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 1,
+    },
+    ...toolPages.map((path) => ({
+      url: `${baseUrl}${path}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
+    ...presetRanges.map((path) => ({
+      url: `${baseUrl}${path}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
+    ...infoPages.map((path) => ({
+      url: `${baseUrl}${path}`,
+      lastModified,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    })),
+  ];
 }

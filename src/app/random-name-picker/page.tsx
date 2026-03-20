@@ -5,6 +5,9 @@ import RandomNamePickerTool from "@/components/tools/RandomNamePickerTool";
 export const metadata: Metadata = {
   title: "Random Name Picker - Pick Names Randomly",
   description: "Free random name picker. Enter a list of names and randomly select winners. Perfect for giveaways, classroom selection, and team assignments.",
+  alternates: {
+    canonical: "/random-name-picker",
+  },
   openGraph: {
     title: "Random Name Picker - Pick Names Randomly | GeneratorNumberRandom",
     description: "Free random name picker. Enter a list of names and randomly select winners.",

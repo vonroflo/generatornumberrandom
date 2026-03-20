@@ -142,6 +142,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `Random Number Generator ${preset.min}-${preset.max}`,
     description: `Generate random numbers between ${preset.min} and ${preset.max} instantly. Free online tool, no signup required.`,
+    alternates: {
+      canonical: `/random-number-${preset.min}-${preset.max}`,
+    },
     openGraph: {
       title: `Random Number Generator ${preset.min}-${preset.max} | GeneratorNumberRandom`,
       description: `Generate random numbers between ${preset.min} and ${preset.max} instantly. Free online tool.`,

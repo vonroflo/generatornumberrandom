@@ -5,6 +5,9 @@ import RandomColorTool from "@/components/tools/RandomColorTool";
 export const metadata: Metadata = {
   title: "Random Color Generator - Generate Random Colors",
   description: "Free random color generator. Generate random colors with HEX and RGB values instantly. Perfect for designers, artists, and developers.",
+  alternates: {
+    canonical: "/random-color-generator",
+  },
   openGraph: {
     title: "Random Color Generator - Generate Random Colors | GeneratorNumberRandom",
     description: "Free random color generator. Generate random colors with HEX and RGB values instantly.",

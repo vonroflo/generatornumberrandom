@@ -5,6 +5,9 @@ import RandomLetterTool from "@/components/tools/RandomLetterTool";
 export const metadata: Metadata = {
   title: "Random Letter Generator - Generate Random A-Z Letters",
   description: "Free random letter generator. Generate random letters from A to Z instantly. Choose uppercase, lowercase, or both. Perfect for games and learning.",
+  alternates: {
+    canonical: "/random-letter-generator",
+  },
   openGraph: {
     title: "Random Letter Generator - Generate Random A-Z Letters | GeneratorNumberRandom",
     description: "Free random letter generator. Generate random letters from A to Z instantly.",

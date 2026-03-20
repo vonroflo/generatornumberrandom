@@ -5,6 +5,9 @@ import RandomDateTool from "@/components/tools/RandomDateTool";
 export const metadata: Metadata = {
   title: "Random Date Generator - Generate Random Dates",
   description: "Free random date generator. Generate random dates within any range. Perfect for testing, scheduling, games, and creative projects.",
+  alternates: {
+    canonical: "/random-date-generator",
+  },
   openGraph: {
     title: "Random Date Generator - Generate Random Dates | GeneratorNumberRandom",
     description: "Free random date generator. Generate random dates within any range.",
