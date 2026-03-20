@@ -55,7 +55,7 @@ export default function RandomNumberTool({
     }
 
     setError(null);
-    let generated: number[] = [];
+    const generated: number[] = [];
 
     if (allowDuplicates) {
       for (let i = 0; i < quantity; i++) {

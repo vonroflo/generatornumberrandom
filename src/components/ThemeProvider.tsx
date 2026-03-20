@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 
 type Theme = "light" | "dark" | "system";
 
@@ -23,18 +23,18 @@ export function useTheme() {
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("system");
   const [resolvedTheme, setResolvedTheme] = useState<"light" | "dark">("dark");
-  const [mounted, setMounted] = useState(false);
+  const mounted = useRef(false);
 
   useEffect(() => {
-    setMounted(true);
+    mounted.current = true;
     const stored = localStorage.getItem("theme") as Theme | null;
     if (stored) {
-      setTheme(stored);
+      setTheme(stored); // eslint-disable-line react-hooks/set-state-in-effect -- restore persisted theme on mount
     }
   }, []);
 
   useEffect(() => {
-    if (!mounted) return;
+    if (!mounted.current) return;
 
     const root = document.documentElement;
 
@@ -64,7 +64,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
     mediaQuery.addEventListener("change", handler);
     return () => mediaQuery.removeEventListener("change", handler);
-  }, [theme, mounted]);
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme, resolvedTheme }}>
